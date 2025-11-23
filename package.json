@@ -1,0 +1,14 @@
+{
+  "name": "fitness-activity-splitter-reminders",
+  "version": "1.0.0",
+  "description": "Optional reminder microservice for fitness activity splitter",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["fitness", "reminders"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
+

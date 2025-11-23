@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Activity Splitter</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <!-- Main container for the entire app -->
+    <div class="container">
+        <!-- Header section with app title and tagline -->
+        <header class="header">
+            <h1 class="app-title">Fitness Activity Splitter</h1>
+            <p class="tagline">Get personalized workout recommendations based on your goals</p>
+        </header>
+
+        <!-- Theme selector buttons -->
+        <div class="theme-selector">
+            <button class="theme-btn active" data-theme="default">Default</button>
+            <button class="theme-btn" data-theme="dark">Dark</button>
+            <button class="theme-btn" data-theme="futuristic">Futuristic</button>
+        </div>
+
+        <!-- User input form -->
+        <section class="form-section">
+            <form id="fitness-form" class="fitness-form">
+                <!-- Age input field -->
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" min="13" max="100" required>
+                </div>
+
+                <!-- Height input field (in centimeters) -->
+                <div class="form-group">
+                    <label for="height_cm">Height (cm)</label>
+                    <input type="number" id="height_cm" name="height_cm" min="100" max="250" required>
+                </div>
+
+                <!-- Weight input field (in kilograms) -->
+                <div class="form-group">
+                    <label for="weight_kg">Weight (kg)</label>
+                    <input type="number" id="weight_kg" name="weight_kg" min="30" max="300" step="0.1" required>
+                </div>
+
+                <!-- Fitness goal dropdown -->
+                <div class="form-group">
+                    <label for="goal">Fitness Goal</label>
+                    <select id="goal" name="goal" required>
+                        <option value="">Select a goal</option>
+                        <option value="weight_loss">Weight Loss</option>
+                        <option value="muscle_gain">Muscle Gain</option>
+                        <option value="endurance">Endurance</option>
+                        <option value="general_fitness">General Fitness</option>
+                    </select>
+                </div>
+
+                <!-- Weekly available minutes -->
+                <div class="form-group">
+                    <label for="weekly_minutes">Weekly Minutes Available</label>
+                    <input type="number" id="weekly_minutes" name="weekly_minutes" min="60" max="1000" required>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="submit-btn">Get Recommendation</button>
+            </form>
+        </section>
+
+        <!-- Results section (hidden initially) -->
+        <section id="results-section" class="results-section hidden">
+            <!-- Main splitter card showing percentages -->
+            <div class="splitter-card">
+                <h2 class="card-title">Your Recommended Split</h2>
+                
+                <!-- Cardio section -->
+                <div class="split-item">
+                    <div class="split-header">
+                        <span class="split-label">Cardio</span>
+                        <span class="split-percentage" id="cardio-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="cardio-progress" style="width: 0%"></div>
+                    </div>
+                    <ul class="activity-list" id="cardio-activities"></ul>
+                </div>
+
+                <!-- Strength section -->
+                <div class="split-item">
+                    <div class="split-header">
+                        <span class="split-label">Strength</span>
+                        <span class="split-percentage" id="strength-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="strength-progress" style="width: 0%"></div>
+                    </div>
+                    <ul class="activity-list" id="strength-activities"></ul>
+                </div>
+
+                <!-- Flexibility section -->
+                <div class="split-item">
+                    <div class="split-header">
+                        <span class="split-label">Flexibility</span>
+                        <span class="split-percentage" id="flexibility-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="flexibility-progress" style="width: 0%"></div>
+                    </div>
+                    <ul class="activity-list" id="flexibility-activities"></ul>
+                </div>
+
+                <!-- Rest section -->
+                <div class="split-item">
+                    <div class="split-header">
+                        <span class="split-label">Rest</span>
+                        <span class="split-percentage" id="rest-percent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="rest-progress" style="width: 0%"></div>
+                    </div>
+                    <ul class="activity-list" id="rest-activities"></ul>
+                </div>
+            </div>
+
+            <!-- Explanation toggle section -->
+            <div class="explanation-section">
+                <button class="explain-toggle" id="explain-toggle">Show Explanation</button>
+                <div class="explanation-content hidden" id="explanation-content">
+                    <p id="explanation-text"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading indicator (hidden initially) -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Calculating your recommendation...</p>
+        </div>
+
+        <!-- Error message display (hidden initially) -->
+        <div id="error-message" class="error-message hidden"></div>
+    </div>
+
+    <!-- Link to main JavaScript file -->
+    <script src="static/js/main.js"></script>
+</body>
+</html>
+
