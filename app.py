@@ -1,5 +1,4 @@
-# Flask backend for Fitness Activity Splitter
-# How to run: pip install -r requirements.txt, python app.py
+
 
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
