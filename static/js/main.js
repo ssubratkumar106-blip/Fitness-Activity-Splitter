@@ -1,5 +1,4 @@
-// Main JavaScript file for Fitness Activity Splitter
-
+//  JavaScript file for Fitness Activity Splitter
 document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme') || 'default';
     setTheme(savedTheme);
